@@ -1,0 +1,105 @@
+---
+title: "CodeBook"
+author: "pblack476"
+date: "10/9/2020"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## tidyset
+
+Here is a table with all the variable descriptions:
+
+| **COLUMN** | **VARIABLE**                | **NOTES**                                  |
+| ---------- | --------------------------- | ------------------------------------------ |
+| 1          | subject                     | subject ID                                 |
+| 2          | activity                    | activity performed by the subject          |
+| 3          | tBodyAcc-mean()-X           | the MEAN of BodyAcc on the X axis.         |
+| 4          | tBodyAcc-mean()-Y           | the MEAN of BodyAcc on the Y axis.         |
+| 5          | tBodyAcc-mean()-Z           | the MEAN of BodyAcc on the Z axis.         |
+| 6          | tBodyAcc-std()-X            | the STD of BodyAcc on the X axis.          |
+| 7          | tBodyAcc-std()-Y            | the STD of BodyAcc on the Y axis.          |
+| 8          | tBodyAcc-std()-Z            | the STD of BodyAcc on the Z axis.          |
+| 9          | tGravityAcc-mean()-X        | the MEAN of GravityAcc on the X axis.      |
+| 10         | tGravityAcc-mean()-Y        | the MEAN of GravityAcc on the Y axis.      |
+| 11         | tGravityAcc-mean()-Z        | the MEAN of GravityAcc on the Z axis.      |
+| 12         | tGravityAcc-std()-X         | the STD of GravityAcc on the X axis.       |
+| 13         | tGravityAcc-std()-Y         | the STD of GravityAcc on the Y axis.       |
+| 14         | tGravityAcc-std()-Z         | the STD of GravityAcc on the Z axis.       |
+| 15         | tBodyAccJerk-mean()-X       | the MEAN of BodyAccJerk on the X axis.     |
+| 16         | tBodyAccJerk-mean()-Y       | the MEAN of BodyAccJerk on the Y axis.     |
+| 17         | tBodyAccJerk-mean()-Z       | the MEAN of BodyAccJerk on the Z axis.     |
+| 18         | tBodyAccJerk-std()-X        | the STD of BodyAccJerk on the X axis.      |
+| 19         | tBodyAccJerk-std()-Y        | the STD of BodyAccJerk on the Y axis.      |
+| 20         | tBodyAccJerk-std()-Z        | the STD of BodyAccJerk on the Z axis.      |
+| 21         | tBodyGyro-mean()-X          | the MEAN of BodyGyro on the X axis.        |
+| 22         | tBodyGyro-mean()-Y          | the MEAN of BodyGyro on the Y axis.        |
+| 23         | tBodyGyro-mean()-Z          | the MEAN of BodyGyro on the Z axis.        |
+| 24         | tBodyGyro-std()-X           | the STD of BodyGyro on the X axis.         |
+| 25         | tBodyGyro-std()-Y           | the STD of BodyGyro on the Y axis.         |
+| 26         | tBodyGyro-std()-Z           | the STD of BodyGyro on the Z axis.         |
+| 27         | tBodyGyroJerk-mean()-X      | the MEAN of BodyGyroJerk on the X axis.    |
+| 28         | tBodyGyroJerk-mean()-Y      | the MEAN of BodyGyroJerk on the Y axis.    |
+| 29         | tBodyGyroJerk-mean()-Z      | the MEAN of BodyGyroJerk on the Z axis.    |
+| 30         | tBodyGyroJerk-std()-X       | the STD of BodyGyroJerk on the X axis.     |
+| 31         | tBodyGyroJerk-std()-Y       | the STD of BodyGyroJerk on the Y axis.     |
+| 32         | tBodyGyroJerk-std()-Z       | the STD of BodyGyroJerk on the Z axis.     |
+| 33         | tBodyAccMag-mean()          | the MEAN of BodyAccMag.                    |
+| 34         | tBodyAccMag-std()           | the STD of BodyAccMag.                     |
+| 35         | tGravityAccMag-mean()       | the MEAN of GravityAccMag.                 |
+| 36         | tGravityAccMag-std()        | the STD of GravityAccMag.                  |
+| 37         | tBodyAccJerkMag-mean()      | the MEAN of BodyAccJerkMag.                |
+| 38         | tBodyAccJerkMag-std()       | the STD of BodyAccJerkMag.                 |
+| 39         | tBodyGyroMag-mean()         | the MEAN of BodyGyroMag.                   |
+| 40         | tBodyGyroMag-std()          | the STD of BodyGyroMag.                    |
+| 41         | tBodyGyroJerkMag-mean()     | the MEAN of BodyGyroJerkMag.               |
+| 42         | tBodyGyroJerkMag-std()      | the STD of BodyGyroJerkMag.                |
+| 43         | fBodyAcc-mean()-X           | the MEAN of FFT BodyAcc on the X axis.     |
+| 44         | fBodyAcc-mean()-Y           | the MEAN of FFT BodyAcc on the Y axis.     |
+| 45         | fBodyAcc-mean()-Z           | the MEAN of FFT BodyAcc on the Z axis.     |
+| 46         | fBodyAcc-std()-X            | the STD of FFT BodyAcc on the X axis.      |
+| 47         | fBodyAcc-std()-Y            | the STD of FFT BodyAcc on the Y axis.      |
+| 48         | fBodyAcc-std()-Z            | the STD of FFT BodyAcc on the Z axis.      |
+| 49         | fBodyAccJerk-mean()-X       | the MEAN of FFT BodyAccJerk on the X axis. |
+| 50         | fBodyAccJerk-mean()-Y       | the MEAN of FFT BodyAccJerk on the Y axis. |
+| 51         | fBodyAccJerk-mean()-Z       | the MEAN of FFT BodyAccJerk on the Z axis. |
+| 52         | fBodyAccJerk-std()-X        | the STD of FFT BodyAccJerk on the X axis.  |
+| 53         | fBodyAccJerk-std()-Y        | the STD of FFT BodyAccJerk on the Y axis.  |
+| 54         | fBodyAccJerk-std()-Z        | the STD of FFT BodyAccJerk on the Z axis.  |
+| 55         | fBodyGyro-mean()-X          | the MEAN of FFT BodyGyro on the X axis.    |
+| 56         | fBodyGyro-mean()-Y          | the MEAN of FFT BodyGyro on the Y axis.    |
+| 57         | fBodyGyro-mean()-Z          | the MEAN of FFT BodyGyro on the Z axis.    |
+| 58         | fBodyGyro-std()-X           | the STD of FFT BodyGyro on the X axis.     |
+| 59         | fBodyGyro-std()-Y           | the STD of FFT BodyGyro on the Y axis.     |
+| 60         | fBodyGyro-std()-Z           | the STD of FFT BodyGyro on the Z axis.     |
+| 61         | fBodyAccMag-mean()          | the MEAN of FFT BodyAccMag.                |
+| 62         | fBodyAccMag-std()           | the STD of FFT BodyAccMag.                 |
+| 63         | fBodyBodyAccJerkMag-mean()  | the MEAN of FFT BodyBodyAccJerkMag.        |
+| 64         | fBodyBodyAccJerkMag-std()   | the STD of FFT BodyBodyAccJerkMag.         |
+| 65         | fBodyBodyGyroMag-mean()     | the MEAN of FFT BodyBodyGyroMag.           |
+| 66         | fBodyBodyGyroMag-std()      | the STD of FFT BodyBodyGyroMag.            |
+| 67         | fBodyBodyGyroJerkMag-mean() | the MEAN of FFT BodyBodyGyroJerkMag.       |
+| 68         | fBodyBodyGyroJerkMag-std()  | the STD of FFT BodyBodyGyroJerkMag.        |
+
+*FFT means Fast-Fourier-Transformation and this was already done on the source data.
+
+## Transformations
+
+1. To get to the the tidy dataset first the txt files from the research were collected and the inertial folder was ignores as it did not contain pertinent information for the assignment
+2. train and test chunks were merged 
+3. variables were re-labeled accordingly
+4. variables that were not mean or std of something were excluded
+5. the aggregate function was passed to obtain the final tidyset with explanation below
+
+Function:
+
+>tidyset <-
+  aggregate(. ~ subject + activity, result, mean)
+  
+The formula was defined with the "~" operator. On the lhs is "." which is acting as a placeholdes for "anything but what comes on the rhs". And the rhs is defined as the columns activity and subject. So here we are aggregating every column but those two of the "result" dataset (obtained in step 4 above) by their means ON subject and activity. 
+
+
+
